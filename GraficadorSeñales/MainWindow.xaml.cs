@@ -248,13 +248,25 @@ namespace GraficadorSeñales
             if (cbOperacion.SelectedIndex == 4)
             {
                 int indiceMaximo = 0;
-                for(int i=0; i<señalResultante.Muestras.Count/2; i++)
+                int indiceMaximo2 = 0;
+                for (int i = 0; i < señalResultante.Muestras.Count / 2; i++)
                 {
-                    if(señalResultante.Muestras[i].Y >
-                        señalResultante.Muestras[indiceMaximo].Y )
+                    if (señalResultante.Muestras[i].Y > 1150 && señalResultante.Muestras[i].Y < 1550)
                     {
-                        indiceMaximo = i;
-                    } 
+                        if (señalResultante.Muestras[i].Y >
+                            señalResultante.Muestras[indiceMaximo].Y)
+                        {
+                            indiceMaximo = i;
+                        }
+                    }
+                    if (señalResultante.Muestras[i].Y > 650 && señalResultante.Muestras[i].Y < 1000)
+                    {
+                        if (señalResultante.Muestras[i].Y >
+                            señalResultante.Muestras[indiceMaximo2].Y)
+                        {
+                            indiceMaximo2 = i;
+                        }
+                    }
                 }
                 double frecuencia =
                     (double)(indiceMaximo * señalResultante.FrecuenciaMuestreo)
