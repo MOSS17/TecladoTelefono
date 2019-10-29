@@ -268,28 +268,73 @@ namespace GraficadorSeñales
                 }
                 double frecuencia = (double)(indiceMaximo * señalResultante.FrecuenciaMuestreo) / (double)señalResultante.Muestras.Count;
                 double frecuencia_2 = (double)(indiceMaximo2 * señalResultante.FrecuenciaMuestreo) / (double)señalResultante.Muestras.Count;
-                lblHertz.Text = frecuencia.ToString("N") + " Hz";
-                lblHertz_2.Text = frecuencia_2.ToString("N") + " Hz";
+                lblHertz_Alta.Text = frecuencia.ToString("N") + " Hz";
+                lblHertz_Baja.Text = frecuencia_2.ToString("N") + " Hz";
 
                 string numero = "#";
 
-                if (frecuencia > 670 && frecuencia < 720)
+                if (frecuencia_2 > 670 && frecuencia_2 < 720)
                 {
-                    if (frecuencia_2 > 1150 && frecuencia_2 < 1250)
+                    if (frecuencia > 1150 && frecuencia < 1250)
+                    {
+                        numero = "1";
+                    }
+                    if (frecuencia > 1250 && frecuencia < 1400)
+                    {
+                        numero = "2";
+                    }
+                    if (frecuencia > 1400)
+                    {
+                        numero = "3";
+                    }
+                }
+                if (frecuencia_2 > 720 && frecuencia_2 < 810)
+                {
+                    if (frecuencia > 1150 && frecuencia < 1250)
+                    {
+                        numero = "4";
+                    }
+                    if (frecuencia > 1250 && frecuencia < 1400)
+                    {
+                        numero = "5";
+                    }
+                    if (frecuencia > 1400 )
+                    {
+                        numero = "6";
+                    }
+                }
+                if (frecuencia_2 > 810 && frecuencia_2 < 900)
+                {
+                    if (frecuencia > 1150 && frecuencia < 1250)
+                    {
+                        numero = "7";
+                    }
+                    if (frecuencia > 1250 && frecuencia < 1400)
+                    {
+                        numero = "8";
+                    }
+                    if (frecuencia > 1400)
+                    {
+                        numero = "9";
+                    }
+                }
+                if (frecuencia_2 > 900 )
+                {
+                    if (frecuencia > 1150 && frecuencia < 1250)
                     {
                         numero = "*";
                     }
-                    if (frecuencia_2 > 1250 && frecuencia_2 < 1400)
+                    if (frecuencia > 1250 && frecuencia < 1400)
                     {
                         numero = "0";
                     }
-                    if (frecuencia_2 > 1400)
+                    if (frecuencia > 1400)
                     {
                         numero = "#";
                     }
                 }
 
-                lblNumero.Text = numero.ToString();
+                lblNumero.Text = numero;
 
             }
 
